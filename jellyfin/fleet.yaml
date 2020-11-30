@@ -1,3 +1,4 @@
+defaultNamespace: jellyfin
 namespace: jellyfin
 helm:
   values:
