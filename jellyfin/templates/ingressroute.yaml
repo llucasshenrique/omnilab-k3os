@@ -10,7 +10,9 @@ metadata:
     {{- include "jellyfin.labels" . | nindent 4 }}
 spec:
   entryPoints:
-    - websecure
+    {{- range .Values.ingressRoute.entryPoints }}
+    - {{ . | quote }}
+    {{- end }}
   routes:
   - match: Host(`video.llucasshenrique.space`)
     kind: Rule
