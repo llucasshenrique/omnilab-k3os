@@ -57,7 +57,7 @@ spec:
       volumes:
         - name: media-1
           persistentVolumeClaim:
-            claimName: pvc-jellyfin-media-1
+            claimName: pvc-media-1
         # - name: media-2
         #   persistentVolumeClaim:
         #     claimName: pvc-jellyfin-media-2
