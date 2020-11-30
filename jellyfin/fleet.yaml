@@ -5,7 +5,7 @@ helm:
       enabled: true
       entryPoints:
         - websecure
-      route:
+      routes:
       - match: Host(`video.llucasshenrique.space`)
       tls:
         provider: cloudflare

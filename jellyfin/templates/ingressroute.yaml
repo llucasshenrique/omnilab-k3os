@@ -14,11 +14,13 @@ spec:
     - {{ . | quote }}
     {{- end }}
   routes:
-  - match: Host(`video.llucasshenrique.space`)
+  {{- range .Values.ingressRoute.routes }}
+  - match: {{ .match }}
     kind: Rule
     services:
     - name: {{ $fullName }}
       port: {{ $svcPort }}
+  {{- end }}
   tls: 
     provider: {{ $tlsProvider | default "default" }}
   # {{- if .Values.ingressRoute.tls }}
