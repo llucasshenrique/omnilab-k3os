@@ -10,7 +10,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
-    routes:
+  routes:
   - match: Host(`minecraft.llucasshenrique.space`) && PathPrefix(`/routes`)
     kind: Rule
     services:
