@@ -11,11 +11,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`jellyfin.llucasshenrique.space`)
+  - match: Host(`video.llucasshenrique.space`)
     kind: Rule
     services:
     - name: {{ $fullName }}
-      port: 8080
+      port: {{ $svcPort }}
   tls: 
     provider: cloudflare
   # {{- if .Values.ingressRoute.tls }}
