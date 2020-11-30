@@ -17,7 +17,7 @@ spec:
     - name: {{ $fullName }}
       port: {{ $svcPort }}
   tls: 
-    provider: {{- .Values.entryPoints.provider | default "default"-}}
+    provider: {{ .Values.entryPoints.provider | default "default" }}
   # {{- if .Values.ingressRoute.tls }}
   # tls:
   #   provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
