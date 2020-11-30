@@ -50,15 +50,15 @@ spec:
           volumeMounts:
             - name: media-1
               mountPath: /data/media-1
-            - name: media-2
-              mountPath: /data/media-2
+            # - name: media-2
+            #   mountPath: /data/media-2
       volumes:
         - name: media-1
           persistentVolumeClaim:
             claimName: pvc-jellyfin-media-1
-        - name: media-2
-          persistentVolumeClaim:
-            claimName: pvc-jellyfin-media-2
+        # - name: media-2
+        #   persistentVolumeClaim:
+        #     claimName: pvc-jellyfin-media-2
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
