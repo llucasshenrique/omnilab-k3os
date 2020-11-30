@@ -7,7 +7,7 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "jellyfin.labels" . | nindent 4 -}}
-  {{- with .Values.serviceAccount.annotations -}}
+  {{- with .Values.ingressRoute.annotations -}}
   annotations:
     {{- toYaml . | nindent 4 -}}
   {{- end -}}
