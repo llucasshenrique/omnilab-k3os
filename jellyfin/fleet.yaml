@@ -1,0 +1,13 @@
+namespace: jellyfin
+targetCustomizations:
+- name: prod
+  helm:
+    values:
+      ingressRoute:
+        enabled: true
+        entryPoints:
+          - websecure
+        route:
+        - match: Host(`video.llucasshenrique.space`)
+        tls:
+          provider: cloudflare
