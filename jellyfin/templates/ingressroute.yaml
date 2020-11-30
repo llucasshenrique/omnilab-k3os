@@ -7,10 +7,6 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end -}}
 spec:
   entryPoints:
     - websecure
