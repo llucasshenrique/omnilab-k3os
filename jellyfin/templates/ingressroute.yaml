@@ -14,17 +14,25 @@ metadata:
 spec:
   entryPoints:
     - websecure
-  {{- if .Values.ingressRoute.tls }}
-  tls:
-    provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
-  {{- end }}
-  {{- if .Values.ingressRoute.routes }}
-  routes:
-  {{- range .Values.ingressRoute.routes }}
-  - match: {{ .match }}
-    services: 
+    routes:
+  - match: Host(`minecraft.llucasshenrique.space`) && PathPrefix(`/routes`)
+    kind: Rule
+    services:
     - name: {{ $fullName }}
-      port: {{ $svcPort}}
-  {{- end }}
-  {{- end }}
+      port: 8080
+  tls: 
+    provider: cloudflare
+  # {{- if .Values.ingressRoute.tls }}
+  # tls:
+  #   provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
+  # {{- end }}
+  # {{- if .Values.ingressRoute.routes }}
+  # routes:
+  # {{- range .Values.ingressRoute.routes }}
+  # - match: {{ .match }}
+  #   services: 
+  #   - name: {{ $fullName }}
+  #     port: {{ $svcPort}}
+  # {{- end }}
+  # {{- end }}
 {{- end }}
