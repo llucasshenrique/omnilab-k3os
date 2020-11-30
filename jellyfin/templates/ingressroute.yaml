@@ -1,6 +1,7 @@
 {{- if .Values.ingressRoute.enabled -}}
 {{- $fullName := include "jellyfin.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
+{{- $tlsProvider := .Values.ingressRoute.tls.provider -}}
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -17,7 +18,7 @@ spec:
     - name: {{ $fullName }}
       port: {{ $svcPort }}
   tls: 
-    provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
+    provider: {{ $tlsProvider | default "default" }}
   # {{- if .Values.ingressRoute.tls }}
   # tls:
   #   provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
