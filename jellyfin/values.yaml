@@ -59,7 +59,7 @@ ingressRoute:
   entryPoints: []
     # - web
     # - websecure
-  route:
+  routes:
   - match: Host(`jellyfin.cluster.domain`)
   tls:
     provider: default
