@@ -14,13 +14,13 @@ spec:
     - {{ . | quote }}
     {{- end }}
   routes:
-  {{- range .Values.ingressRoute.routes -}}
+  {{- range .Values.ingressRoute.routes }}
   - match: {{ .match }}
     kind: Rule
     services:
     - name: {{ $fullName }}
       port: {{ $svcPort }}
-  {{- end -}}
+  {{- end }}
   tls: 
     provider: {{ $tlsProvider | default "default" }}
   # {{- if .Values.ingressRoute.tls }}
