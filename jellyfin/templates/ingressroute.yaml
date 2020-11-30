@@ -11,7 +11,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`minecraft.llucasshenrique.space`) && PathPrefix(`/routes`)
+  - match: Host(`jellyfin.llucasshenrique.space`)
     kind: Rule
     services:
     - name: {{ $fullName }}
