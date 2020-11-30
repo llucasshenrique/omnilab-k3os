@@ -12,12 +12,8 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if .Values.ingressRoute.entryPoints }}
   entryPoints:
-  {{- range .Values.ingressRoute.entryPoints }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    - websecure
   {{- if .Values.ingressRoute.tls }}
   tls:
     provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
