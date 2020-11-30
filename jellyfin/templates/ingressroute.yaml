@@ -15,7 +15,7 @@ spec:
   {{- if .Values.ingressRoute.entryPoints }}
   entryPoints:
   {{- range .Values.ingressRoute.entryPoints }}
-    {{ . }}
+    - {{ . }}
   {{- end }}
   {{- end }}
   {{- if .Values.ingressRoute.tls }}
