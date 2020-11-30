@@ -18,6 +18,6 @@ spec:
   {{- end -}}
   {{- if .Values.ingressRoute.tls -}}
   tls:
-    provider: {{ .Values.ingressRoute.tls.provider . | default "default" . }}
+    provider: {{ .Values.ingressRoute.tls.provider | default "default" . }}
   {{- end -}}
 {{- end -}}
