@@ -1,5 +1,4 @@
 defaultNamespace: traefik
-namespace: traefik
 helm:
   repo: https://helm.traefik.io/traefik
   chart: traefik
