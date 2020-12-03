@@ -1,0 +1,11 @@
+kind: GitRepo
+apiVersion: fleet.cattle.io/v1alpha1
+metadata:
+  name: deployments
+  namespace: fleet-local
+spec:
+  repo: https://github.com/llucasshenrique/omnilab-k3os
+  clientSecretName: fleet-ssh
+  branch: master
+paths:
+  - traefik
