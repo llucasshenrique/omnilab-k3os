@@ -1,0 +1,6 @@
+defaultNamespace: traefik
+namespace: traefik
+helm:
+  repo: https://helm.traefik.io/traefik
+  chart: traefik
+  version: 9.11.0
