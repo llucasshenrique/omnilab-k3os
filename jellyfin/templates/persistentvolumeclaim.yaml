@@ -9,7 +9,7 @@ spec:
   volumeName: pv-jellyfin-media-1
   resources:
     requests:
-      storage: 250Gi
+      storage: 200Gi
 # ---
 # apiVersion: v1
 # kind: PersistentVolumeClaim
