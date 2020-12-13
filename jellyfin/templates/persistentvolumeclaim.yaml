@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: hostPath
+  storageClassName: host-path
   volumeName: pv-jellyfin-media-1
   resources:
     requests:
