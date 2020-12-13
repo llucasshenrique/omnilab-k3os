@@ -7,6 +7,6 @@ helm:
       entryPoints:
         - websecure
       routes:
-      - match: Host(`video.llucasshenrique.space`)
+      - match: Host(`media.llucasshenrique.space`)
       tls:
         provider: cloudflare
