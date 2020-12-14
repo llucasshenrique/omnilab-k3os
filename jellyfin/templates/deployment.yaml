@@ -50,11 +50,16 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+            - name: config
+              mountPath: /config
             - name: media-1
               mountPath: /data/media-1
             # - name: media-2
             #   mountPath: /data/media-2
       volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: pvc-jellyfin-config
         - name: media-1
           persistentVolumeClaim:
             claimName: pvc-media-1
