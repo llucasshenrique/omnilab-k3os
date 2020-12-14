@@ -7,6 +7,6 @@ helm:
       entryPoints:
         - websecure
       routes:
-      - match(`torrent.llucasshenrique.space`)
+      - match: Host(`torrent.llucasshenrique.space`)
       tls:
         provider: cloudflare
