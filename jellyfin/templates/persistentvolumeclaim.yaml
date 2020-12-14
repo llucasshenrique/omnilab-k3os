@@ -9,7 +9,7 @@ spec:
   storageClassName: local-path
   volumeName: pv-jellyfin-config
   resources:
-    request:
+    requests:
       storage: 5Gi
 ---
 apiVersion: v1
