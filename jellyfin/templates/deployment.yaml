@@ -50,6 +50,9 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+            - name: devfs
+              mountPath: /dev/dri
+              readOnly: true
             - name: config
               mountPath: /config
             - name: media-1
@@ -57,6 +60,9 @@ spec:
             # - name: media-2
             #   mountPath: /data/media-2
       volumes:
+        - name: devfs
+          hostPath:
+            path: /dev/dri
         - name: config
           persistentVolumeClaim:
             claimName: pvc-jellyfin-config
