@@ -3,7 +3,7 @@ namespace: qbittorrent
 helm:
   values:
     ingressRoute:
-      enable: true
+      enabled: true
       entryPoints:
         - websecure
       routes:
