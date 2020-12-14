@@ -10,7 +10,7 @@ spec:
   volumeName: pv-qbittorrent-config
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
