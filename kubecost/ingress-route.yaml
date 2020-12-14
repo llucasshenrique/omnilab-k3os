@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: cluster-cost
+  namespace: cost-analyzer
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`cost.llucasshenrique.space`)
+    kind: Rule
+    services:
+    - name: cost-analyzer-cost-analyzer
+      port: 9090
+  tls:
+    provider: cloudflare
