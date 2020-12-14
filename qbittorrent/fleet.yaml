@@ -1,0 +1,12 @@
+defaultNamespace: qbittorrent
+namespace: qbittorrent
+helm:
+  values:
+    ingressRoute:
+      enable: true
+      entryPoints:
+        - websecure
+      routes:
+      - match(`torrent.llucasshenrique.space`)
+      tls:
+        provider: cloudflare

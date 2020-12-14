@@ -1,0 +1,26 @@
+{{- if .Values.ingressRoute.enabled -}}
+{{- $fullName := include "jellyfin.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+{{- $tlsProvider := .Values.ingressRoute.tls.provider -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "jellyfin.labels" . | nindent 4 }}
+spec:
+  entryPoints:
+    {{- range .Values.ingressRoute.entryPoints }}
+    - {{ . | quote }}
+    {{- end }}
+  routes:
+  {{- range .Values.ingressRoute.routes }}
+  - match: {{ .match }}
+    kind: Rule
+    services:
+    - name: {{ $fullName }}
+      port: {{ $svcPort }}
+  {{- end }}
+  tls: 
+    provider: {{ $tlsProvider | default "default" }}
+{{- end }}
