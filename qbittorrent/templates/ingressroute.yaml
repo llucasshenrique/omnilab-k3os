@@ -1,5 +1,5 @@
 {{- if .Values.ingressRoute.enabled -}}
-{{- $fullName := include "jellyfin.fullname" . -}}
+{{- $fullName := include "qbittorrent.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- $tlsProvider := .Values.ingressRoute.tls.provider -}}
 apiVersion: traefik.containo.us/v1alpha1
@@ -7,7 +7,7 @@ kind: IngressRoute
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "jellyfin.labels" . | nindent 4 }}
+    {{- include "qbittorrent.labels" . | nindent 4 }}
 spec:
   entryPoints:
     {{- range .Values.ingressRoute.entryPoints }}
