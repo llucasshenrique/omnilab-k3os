@@ -4,6 +4,4 @@ helm:
   repo: https://eventstore.github.io/EventStore.Charts
   chart: eventstore
   force: true
-  clusterSize: 1
-  persistence:
-    enabled: true
+
