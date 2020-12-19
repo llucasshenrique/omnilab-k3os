@@ -5,3 +5,5 @@ helm:
   chart: eventstore
   persistence:
     enabled: true
+kustomize:
+  dir: kustomize
