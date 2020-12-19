@@ -3,7 +3,10 @@ namespace: dev-eventstore
 helm:
   repo: https://eventstore.github.io/EventStore.Charts
   chart: eventstore
-  persistence:
-    enabled: true
+  values:
+    nodeSelector:
+      kubernetes.io/hostname: worker0
+    persistence:
+      enabled: true
 kustomize:
   dir: kustomize
