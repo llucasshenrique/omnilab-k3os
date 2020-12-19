@@ -2,8 +2,3 @@ defaultNamespace: dev-eventstore
 namespace: dev-eventstore
 kustomize:
   dir: kustomize
-helm:
-  repo: https://eventstore.github.io/EventStore.Charts
-  chart: eventstore
-  force: true
-
