@@ -5,7 +5,7 @@ helm:
   chart: eventstore
   values:
     nodeSelector:
-      kubernetes.io/hostname: worker0
+      "kubernetes.io/hostname": worker0
     persistence:
       enabled: true
 kustomize:
