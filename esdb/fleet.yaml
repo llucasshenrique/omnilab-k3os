@@ -4,9 +4,16 @@ helm:
   repo: https://eventstore.github.io/EventStore.Charts
   chart: eventstore
   values:
-    nodeSelector:
-      "kubernetes.io/hostname": worker0
     persistence:
       enabled: true
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+              - worker0
 kustomize:
   dir: kustomize
