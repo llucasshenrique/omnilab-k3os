@@ -2,6 +2,6 @@ defaultNamespace: dev.eventstore
 namespace: dev.eventstore
 helm:
   repo: https://eventstore.github.io/EventStore.Charts
-  chart: eventstore
+  chart: eventstore/eventstore
   persistence:
     enabled: true
