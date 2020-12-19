@@ -3,9 +3,7 @@ namespace: dev-eventstore
 helm:
   repo: https://eventstore.github.io/EventStore.Charts
   chart: eventstore
-  values:
-    clusterSize: 1
-    persistence:
-      enabled: true
-kustomize:
-  dir: kustomize
+  force: true
+  clusterSize: 1
+  persistence:
+    enabled: true
