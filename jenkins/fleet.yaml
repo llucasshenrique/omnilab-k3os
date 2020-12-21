@@ -1,4 +1,4 @@
-defaultNamespace: jenkins
-namespace: jenkins
+defaultNamespace: dev-cicd
+namespace: dev-cicd
 kustomize:
-  dir: ./kustomize
+  dir: kustomize
