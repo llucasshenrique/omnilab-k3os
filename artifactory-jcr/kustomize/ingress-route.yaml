@@ -1,0 +1,16 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: artifactory-ingress
+spec: 
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`dreg.llucasshenrique.space`)
+    kind: Rule
+    services:
+    - name: artifactory-jcr-artifactory 
+      port: 8081
+  tls:
+    provider: cloudflare

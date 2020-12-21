@@ -1,0 +1,5 @@
+defaultNamespace: dev-registry
+namespace: dev-registry
+kustomize:
+  dir: kustomize
+  
