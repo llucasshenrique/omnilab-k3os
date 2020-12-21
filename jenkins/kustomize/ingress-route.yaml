@@ -1,0 +1,16 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jenkins-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`ci.llucasshenrique.space`)
+    kind: Rule
+    services:
+    - name: jenkins
+      port: 80
+  tls:
+    provider: cloudflare

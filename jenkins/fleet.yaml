@@ -1,0 +1,4 @@
+defaultNamespace: jenkins
+namespace: jenkins
+kustomize:
+  dir: ./kustomize
