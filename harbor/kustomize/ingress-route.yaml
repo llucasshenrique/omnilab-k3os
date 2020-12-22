@@ -10,10 +10,10 @@ spec:
   - match: HostSNI(`harbor.llucasshenrique.space`)
     services:                  
     - name: harbor             
-      port: 8080
+      port: 30002
   - match: HostSNI(`notary.llucasshenrique.space`)
     services:                  
     - name: harbor             
-      port: 4443         
+      port: 30004         
   tls:                          
     passthrough: true
