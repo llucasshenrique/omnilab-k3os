@@ -5,7 +5,7 @@ metadata:
   name: harbor-route
 spec:
   entryPoints:                 
-    - web-secure
+    - websecure
   routes:                      
   - match: HostSNI(`harbor.llucasshenrique.space`)
     services:                  
