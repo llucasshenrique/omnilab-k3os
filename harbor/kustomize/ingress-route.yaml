@@ -1,0 +1,19 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: harbor-route
+spec:
+  entryPoints:                 
+    - web-secure
+  routes:                      
+  - match: HostSNI(`harbor.llucasshenrique.space`)
+    services:                  
+    - name: harbor             
+      port: 80
+  - match: HostSNI(`notary.llucasshenrique.space`)
+    services:                  
+    - name: harbor             
+      port: 4443         
+  tls:                          
+    passthrough: true
