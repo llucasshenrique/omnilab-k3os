@@ -10,7 +10,7 @@ spec:
   - match: HostSNI(`harbor.llucasshenrique.space`)
     services:                  
     - name: harbor             
-      port: 80
+      port: 8080
   - match: HostSNI(`notary.llucasshenrique.space`)
     services:                  
     - name: harbor             
