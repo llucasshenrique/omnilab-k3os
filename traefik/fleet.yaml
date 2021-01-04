@@ -3,3 +3,5 @@ helm:
   repo: https://helm.traefik.io/traefik
   chart: traefik
   version: 9.11.0
+kustomize:
+  dir: kustomize

@@ -1,0 +1,16 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`traefik.llucasshenrique.space`)
+    kind: Rule
+    services:
+    - name: traefik-traefik
+      port: 80
+  tls:
+    provider: cloudflare
