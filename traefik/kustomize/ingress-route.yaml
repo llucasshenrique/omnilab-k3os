@@ -10,7 +10,7 @@ spec:
   - match: Host(`traefik.llucasshenrique.space`)
     kind: Rule
     services:
-    - name: traefik-traefik
-      port: 80
+    - name: api@internal
+      kind: TraefikService
   tls:
     provider: cloudflare
