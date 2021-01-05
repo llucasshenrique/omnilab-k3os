@@ -7,3 +7,6 @@ data:
   EVENTSTORE_PORT: "1113"
   EVENTSTORE_TLS: "false"
   PORT: "3333"
+  CANNAPAG_API_TITLE: Cannapag API
+  CANNAPAG_API_DESCRIPTION: Ambiente de desenvolviment Cannapag Banking
+  CANNAPAG_API_VERSION: 0.2.0-ALPHA.rc
