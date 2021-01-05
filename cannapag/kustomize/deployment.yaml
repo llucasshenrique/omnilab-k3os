@@ -11,6 +11,8 @@ spec:
       labels:
         app: cannapag-api-rest
     spec:
+      imagePullSecrets:
+      - name: harbor
       containers:
       - name: cannapag-api-rest
         image: harbor.llucasshenrique.space:443/cannapag/api-cannapag:dev
