@@ -8,6 +8,7 @@ spec:
     - websecure
   routes:
     - match: Host(`harbor.llucasshenrique.space`)
+      kind: Rule
       services:
         - name: harbor
           port: 30002
