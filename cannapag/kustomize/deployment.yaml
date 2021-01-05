@@ -21,8 +21,8 @@ spec:
         - name: harbor
       containers:
         - name: cannapag-api-rest
-          image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
-          imagePullPolicy: IfNotPresent
+          image: harbor.llucasshenrique.space/cannapag/api-rest:0.5.0-alpha
+#           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
                 name: cannapag-asaas
