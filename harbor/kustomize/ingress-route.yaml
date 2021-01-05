@@ -10,6 +10,6 @@ spec:
     - match: Host(`harbor.llucasshenrique.space`)
       services:
         - name: harbor
-          port: 8080
+          port: 30002
   tls:
     provider: cloudflare
