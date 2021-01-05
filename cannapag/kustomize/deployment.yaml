@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: cannapag-api-rest
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: cannapag-api-rest
   strategy:
     rollingUpdate:
-      maxSurge: 4
-      maxUnavailable: 1
+      maxSurge: 1
+      maxUnavailable: 0
     type: RollingUpdate
   template:
     metadata:
