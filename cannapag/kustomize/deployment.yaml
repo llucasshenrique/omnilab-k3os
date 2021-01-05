@@ -24,6 +24,10 @@ spec:
           image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
           imagePullPolicy: IfNotPresent
           envFrom:
+            - secretRef:
+                name: cannapag-asaas
+            - secretRef:
+                name: cannapag-auth0    
             - configMapRef:
                 name: cannapag-api-rest-config
           ports:
