@@ -5,6 +5,6 @@ helm:
   version: 9.12.3
   values:
     pilot:
-      token: "aaf85de4-eba0-4037-a118-ba177b6ec439"
+      token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
 kustomize:
   dir: kustomize
