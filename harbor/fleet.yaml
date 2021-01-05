@@ -1,5 +1,5 @@
-defaultNamespace: dev-registry
-namespace: dev-registry
+defaultNamespace: harbor
+namespace: harbor
 kustomize:
   dir: kustomize
   
