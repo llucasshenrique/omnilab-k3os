@@ -24,6 +24,5 @@ spec:
             - name: http
               containerPort: 3333
           envFrom:
-            - name: api-config
-              configMapRef:
-                name: cannapag-api-rest
+            - configMapRef:
+              name: cannapag-api-rest
