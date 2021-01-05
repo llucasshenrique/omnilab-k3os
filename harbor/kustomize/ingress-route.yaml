@@ -9,11 +9,7 @@ spec:
   routes:
     - match: Host(`harbor.llucasshenrique.space`)
       services:
-        - name: harbor-harbor-portal
-          port: 80
-    - match: Host(`notary.llucasshenrique.space`)
-      services:
-        - name: harbor-harbor-notary-server
-          port: 4443
+        - name: harbor
+          port: 8080
   tls:
     provider: cloudflare
