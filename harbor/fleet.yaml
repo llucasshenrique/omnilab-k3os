@@ -4,6 +4,8 @@ helm:
   repo: https://git.rancher.io/charts
   chart: harbor
   values:
+    harborAdminPassword: "Harbor12345"
+    secretKey: "add-your-secret0"
     externalURL: "https://harbor.llucasshenrique.space:443"
     expose:
       type: nodePort
