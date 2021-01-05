@@ -12,14 +12,18 @@ spec:
         app: cannapag-api-rest
     spec:
       imagePullSecrets:
-      - name: harbor
+        - name: harbor
       containers:
-      - name: cannapag-api-rest
-        image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - name: http
-          containerPort: 3333
+        - name: cannapag-api-rest
+          image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - name: http
+              containerPort: 3333
+          envFrom:
+            - name: api-config
+              configMapRef:
+                name: cannapag-api-rest
