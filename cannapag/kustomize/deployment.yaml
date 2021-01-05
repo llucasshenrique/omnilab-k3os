@@ -22,7 +22,7 @@ spec:
         - name: harbor-rancher
       containers:
         - name: cannapag-api-rest
-          image: harbor.llucasshenrique.space/cannapag/api-cannapag
+          image: harbor.llucasshenrique.space/cannapag/api-rest
           imagePullPolicy: Always
           envFrom:
             - secretRef:
