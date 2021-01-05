@@ -10,7 +10,7 @@ spec:
   - match: Host(`esdb.llucasshenrique.space`)
     kind: Rule
     services:
-    - name: esdb-eventstore-admin
+    - name: eventstore-esdb-admin
       port: 2113
   tls:
     provider: cloudflare

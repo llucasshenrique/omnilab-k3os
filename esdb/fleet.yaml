@@ -7,5 +7,6 @@ helm:
   values:
     clusterSize: 1
     imageTag: latest
+    insecure: 'true'
 kustomize:
   dir: kustomize
