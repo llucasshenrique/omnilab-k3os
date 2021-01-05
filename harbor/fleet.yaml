@@ -1,14 +1,13 @@
 defaultNamespace: harbor
 namespace: harbor
 helm:
-  repo: https://helm.goharbor.io
+  repo: https://git.rancher.io/charts
   chart: harbor
   values:
-    externalURL: 'https://harbor.llucasshenrique.space:443'
+    externalURL: "https://harbor.llucasshenrique.space:443"
     expose:
       type: nodePort
       tls:
         enabled: false
 kustomize:
   dir: kustomize
-  
