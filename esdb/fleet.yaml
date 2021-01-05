@@ -6,7 +6,7 @@ helm:
   version: 0.2.5
   values:
     clusterSize: 1
-    imageTag: latest
+    imageTag: '20.10.0-buster-slim'
     insecure: 'true'
 kustomize:
   dir: kustomize
