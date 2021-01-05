@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cannapag-api-rest
+  name: cannapag-api-rest-config
 data:
   EVENT_STORE_URL: eventstore-esdb
   EVENT_STORE_PORT: "1113"
   EVENT_STORE_TLS: "false"
-  PORT: '3333'
+  PORT: "3333"

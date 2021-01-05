@@ -3,26 +3,41 @@ kind: Deployment
 metadata:
   name: cannapag-api-rest
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: cannapag-api-rest
+      name: cannapag-api-rest
+  strategy:
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: cannapag-api-rest
+        name: cannapag-api-rest
     spec:
       imagePullSecrets:
         - name: harbor
       containers:
         - name: cannapag-api-rest
           image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: cannapag-api-rest-config
+          ports:
+            - name: http
+              containerPort: 3333
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
-          ports:
-            - name: http
-              containerPort: 3333
-          envFrom:
-            - configMapRef:
-                name: cannapag-api-rest
