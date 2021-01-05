@@ -7,10 +7,10 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`dev-cannapag.llucasshenrique.space`) && PathPrefix('/api')
-    kind: Rule
-    services:
-    - name: dev-cannapag-api
-      port: 80
+    - match: Host(`dev-cannapag.llucasshenrique.space`)
+      kind: Rule
+      services:
+        - name: dev-cannapag-api
+          port: 80
   tls:
     provider: cloudflare
