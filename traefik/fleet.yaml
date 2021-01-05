@@ -5,6 +5,7 @@ helm:
   version: 9.12.3
   values:
     pilot:
+      enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
 kustomize:
   dir: kustomize
