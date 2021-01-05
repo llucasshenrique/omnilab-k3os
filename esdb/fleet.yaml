@@ -1,4 +1,11 @@
 defaultNamespace: dev-eventstore
 namespace: dev-eventstore
+helm:
+  repo: https://eventstore.github.io/EventStore.Charts
+  chart: eventstore
+  version: 0.2.5
+  values:
+    clusterSize: 1
+    imageTag: latest
 kustomize:
   dir: kustomize
