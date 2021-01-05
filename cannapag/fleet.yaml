@@ -1,0 +1,4 @@
+defaultNamespace: dev-cannapag-api
+namespace: dev-cannapag-api
+kustomize:
+  dir: kustomize

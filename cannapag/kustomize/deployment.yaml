@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cannapag-api-rest
+spec:
+  selector:
+    matchLabels:
+      app: cannapag-api-rest
+  template:
+    metadata:
+      labels:
+        app: cannapag-api-rest
+    spec:
+      containers:
+      - name: cannapag-api-rest
+        image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 3333
