@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: cannapag-api-rest
-        image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
+        image: harbor.llucasshenrique.space:443/cannapag/api-cannapag:dev
         resources:
           limits:
             memory: "128Mi"
