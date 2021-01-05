@@ -2,7 +2,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: dev-cannapag-api-ingress
+  name: cannapag-api-rest-ingress
 spec:
   entryPoints:
     - websecure
@@ -10,7 +10,7 @@ spec:
     - match: Host(`dev-cannapag.llucasshenrique.space`)
       kind: Rule
       services:
-        - name: dev-cannapag-api
-          port: 80
+        - name: cannapag-api-rest
+          port: 3333
   tls:
     provider: cloudflare

@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: cannapag-api-rest-config
 data:
-  EVENTSTORE_URL: eventstore-esdb
-  EVENTSTORE_PORT: "1113"
+  EVENTSTORE_URL: esdb-lb
+  EVENTSTORE_PORT: "2113"
   EVENTSTORE_TLS: "false"
   PORT: "3333"
   CANNAPAG_API_TITLE: Cannapag API
   CANNAPAG_API_DESCRIPTION: Ambiente de desenvolviment Cannapag Banking
-  CANNAPAG_API_VERSION: 0.2.0-ALPHA.rc
+  CANNAPAG_API_VERSION: 0.5.0-alpha

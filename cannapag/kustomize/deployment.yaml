@@ -21,8 +21,8 @@ spec:
         - name: harbor
       containers:
         - name: cannapag-api-rest
-          image: harbor.llucasshenrique.space/cannapag/api-cannapag:dev
-          imagePullPolicy: IfNotPresent
+          image: harbor.llucasshenrique.space/cannapag/api-cannapag
+          imagePullPolicy: Always
           envFrom:
             - secretRef:
                 name: cannapag-asaas
@@ -32,6 +32,7 @@ spec:
                 name: cannapag-api-rest-config
           ports:
             - name: http
+              protocol: TCP
               containerPort: 3333
           livenessProbe:
             httpGet:
