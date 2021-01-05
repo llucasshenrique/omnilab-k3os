@@ -2,7 +2,7 @@ defaultNamespace: harbor
 namespace: harbor
 helm:
   repo: https://helm.goharbor.io
-  chard: harbor
+  chart: harbor
   values:
     externalURL: 'https://harbor.llucasshenrique.space:443'
     expose:
