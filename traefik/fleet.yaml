@@ -3,5 +3,8 @@ helm:
   repo: https://helm.traefik.io/traefik
   chart: traefik
   version: 9.12.3
+  values:
+    pilot:
+      token: "aaf85de4-eba0-4037-a118-ba177b6ec439"
 kustomize:
   dir: kustomize
