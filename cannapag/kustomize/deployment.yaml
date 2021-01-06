@@ -37,12 +37,12 @@ spec:
               containerPort: 3333
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /status
+              port: 3333
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /status
+              port: 3333
           resources:
             limits:
               memory: "128Mi"
