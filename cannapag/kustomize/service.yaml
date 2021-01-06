@@ -4,7 +4,7 @@ metadata:
   name: cannapag-api-rest
 spec:
   selector:
-    app: cannapag-api-rest
+    name: cannapag-api-rest
   ports:
   - name: http
     port: 3333
