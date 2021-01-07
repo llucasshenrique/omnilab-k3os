@@ -4,8 +4,26 @@ helm:
   chart: traefik
   version: 9.12.3
   values:
+    additionalArguments:
+      - "--certificatesresolvers.letsencrypt.acme.email=llucasshenrique@gmail.com"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge=true"
+      - "--certificatesresolvers.letsencrpyt.acmd.dnschallenge.provider=cloudflare"
+      - "--api.insecure=true"
+      - "--accesslog=true"
+      - "--log.level=INFO"
+    envFrom:
+      secretRef:
+        name: cloudflare-dns
+      secretRef:
+        name: cloudflare-api
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
+    experimental:
+      plugins:
+        traefik-forwarded-real-ip:
+          moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
+          version: "v1.0.2"
 kustomize:
   dir: kustomize
