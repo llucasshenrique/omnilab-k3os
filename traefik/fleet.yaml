@@ -13,9 +13,9 @@ helm:
       - "--accesslog=true"
       - "--log.level=INFO"
     envFrom:
-      secretRef:
+      - secretRef:
         name: cloudflare-dns
-      secretRef:
+      - secretRef:
         name: cloudflare-api
     pilot:
       enabled: true
