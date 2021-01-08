@@ -2,17 +2,6 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: traefik-static
-data:
-  TRAEFIK_ACCESSLOG: 'true'
-  TRAEFIK_API: 'true'
-  TRAEFIK_API_INSECURE: 'true'
-  TRAEFIK_LOG: 'true'
-  TRAEFIK_PROVIDERS_FILE_DIRECTORY: /dynamic-config/
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
   name: config-traefik-middlewares
 data:
   forwarded-real-ip.yaml: |
@@ -20,4 +9,14 @@ data:
         my-traefik-forwarded-real-ip:
           plugin:
             traefik-forwarded-real-ip: {}
-  
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-traefik-dynamic
+data:
+  config.yaml: |
+    api:
+      insecure: true
+      dashboard: true
+    accessLog: true

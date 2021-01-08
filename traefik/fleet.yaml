@@ -5,6 +5,7 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
+      - "--providers.file.directory=/config"
       - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
       - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
@@ -26,7 +27,10 @@ helm:
     volumes:
       - name: config-traefik-middlewares
         mountPath: /middlewares
-        type:  configMap
+        type: configMap
+      - name: config-traefik-dynamic
+        mountPath: /config
+        type: configMap
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
