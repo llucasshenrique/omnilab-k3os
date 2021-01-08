@@ -20,3 +20,9 @@ data:
       insecure: true
       dashboard: true
     accessLog: true
+  plugins.yaml: |
+    experimental:
+      plugins:
+        traefik-forwarded-real-ip:
+          moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
+          version: "v1.0.2"
