@@ -4,14 +4,15 @@ helm:
   chart: traefik
   version: 9.12.3
   values:
-    # additionalArguments:
-      # - "--api.insecure=true"
-      # - "--accesslog=true"
-      # - "--log.level=INFO"
-      # - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
-      # - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
-      # - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
-      # - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+    additionalArguments:
+      - "--providers.file.filename=/data/traefik.yaml"
+      - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
+      - "--entryPoints.websecure.http.tls.domains[0].main=llucasshenrique.space"
+      - "--entryPoints.websecure.http.tls.domains[0].sans=*.llucasshenrique.space"
+      - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
+      - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
     resources:
       requests:
         cpu: "125m"
@@ -26,10 +27,10 @@ helm:
           name: cloudflare-api
     volumes:
       - name: config-traefik-middlewares
-        mountPath: /etc/traefik/providers
+        mountPath: /data/providers
         type: configMap
       - name: config-traefik-dynamic
-        mountPath: /etc/traefik
+        mountPath: /data
         type: configMap
     pilot:
       enabled: true
