@@ -4,14 +4,14 @@ helm:
   chart: traefik
   version: 9.12.3
   values:
-    # additionalArguments:
-    #   - "--api.insecure=true"
-    #   - "--accesslog=true"
-    #   - "--log.level=INFO"
-    #   - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
-    #   - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
-    #   - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
-    #   - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+    additionalArguments:
+      - "--api.insecure=true"
+      - "--accesslog=true"
+      - "--log.level=INFO"
+      - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
+      - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
     resources:
       requests:
         cpu: "125m"
@@ -28,9 +28,9 @@ helm:
       - name: config-traefik-middlewares
         mountPath: /middlewares
         type: configMap
-      - name: config-traefik-dynamic
-        mountPath: /etc/traefik
-        type: configMap
+      # - name: config-traefik-dynamic
+      #   mountPath: /etc/traefik
+      #   type: configMap
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
