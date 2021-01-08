@@ -15,9 +15,9 @@ helm:
       - "--log.level=INFO"
     envFrom:
       - secretRef:
-        name: cloudflare-dns
+          name: cloudflare-dns
       - secretRef:
-        name: cloudflare-api
+          name: cloudflare-api
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
