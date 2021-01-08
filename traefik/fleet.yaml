@@ -9,14 +9,27 @@ helm:
       - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
-      - "--api.insecure=true"
-      - "--accesslog=true"
-      - "--log.level=INFO"
     envFrom:
+      - configMapRef:
+          name: traefik-static
       - secretRef:
           name: cloudflare-dns
       - secretRef:
           name: cloudflare-api
+    additionalVolumesMounts:
+      - name: traefik-dynamic-configs
+        mountPath: /dynamic-config/
+    additionalVolumes:
+      - name: traefik-dynamic-configs
+        configMap:
+          - name: traefik-dynamic-configs
+    resources:
+      requests:
+        cpus: '125m'
+        memory: 128Mi
+      limits:
+        cpus: '500m'
+        memory: 1Gi
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
@@ -25,9 +38,6 @@ helm:
         traefik-forwarded-real-ip:
           moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
           version: "v1.0.2"
-      middlewares:
-        my-traefik-forwarded-real-ip:
-          plugin:
-            traefik-forwarded-real-ip: {}
+
 kustomize:
   dir: kustomize
