@@ -5,10 +5,10 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
-      - "--certificatesresolvers.letsencrypt.acme.email=llucasshenrique@gmail.com"
-      - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
-      - "--certificatesresolvers.letsencrypt.acme.dnschallenge=true"
-      - "--certificatesresolvers.letsencrpyt.acmd.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
+      - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
       - "--api.insecure=true"
       - "--accesslog=true"
       - "--log.level=INFO"
