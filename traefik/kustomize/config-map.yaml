@@ -20,6 +20,14 @@ data:
       insecure: true
       dashboard: true
     accessLog: true
+    entryPoints:
+      traefik:
+        address: ":9000"
+      web:
+        address: ":8000"
+      websecure:
+        address: ":8443"
+
   plugins.yaml: |
     experimental:
       plugins:
