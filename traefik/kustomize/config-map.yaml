@@ -6,7 +6,7 @@ metadata:
 data:
   forwarded-real-ip.yaml: |
     middlewares:
-        my-traefik-forwarded-real-ip:
+        traefik-forwarded-real-ip:
           plugin:
             traefik-forwarded-real-ip: {}
 ---
@@ -17,18 +17,24 @@ metadata:
 data:
   traefik.yaml: |
     api:
+      enabled: true
       insecure: true
-      dashboard: true
-    accessLog: true
-    entryPoints:
-      traefik:
-        address: ":9000"
-      web:
-        address: ":8000"
-      websecure:
-        address: ":8443"
-
-  plugins.yaml: |
+    accesslog: true
+    log:
+      level: DEBUG
+    providers:
+      file: 
+        directory: /etc/traefik/providers
+        watch: true
+    certificatesresolvers:
+      cloudflare:
+        acme:
+          email: llucasshenrique@gmail.com
+          storage: /etc/traefik/certs/acme.json
+          dnschallenge:
+            provider: cloudflare
+            resolvers: 1.1.1.1:53,1.0.0.1:53
+            delayBeforeCheck: 90
     experimental:
       plugins:
         traefik-forwarded-real-ip:

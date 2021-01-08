@@ -4,14 +4,14 @@ helm:
   chart: traefik
   version: 9.12.3
   values:
-    additionalArguments:
-      - "--api.insecure=true"
-      - "--accesslog=true"
-      - "--log.level=INFO"
-      - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
-      - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
-      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
-      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+    # additionalArguments:
+      # - "--api.insecure=true"
+      # - "--accesslog=true"
+      # - "--log.level=INFO"
+      # - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
+      # - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+      # - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      # - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
     resources:
       requests:
         cpu: "125m"
@@ -26,20 +26,16 @@ helm:
           name: cloudflare-api
     volumes:
       - name: config-traefik-middlewares
-        mountPath: /middlewares
+        mountPath: /etc/traefik/providers
         type: configMap
-      # - name: config-traefik-dynamic
-      #   mountPath: /etc/traefik
-      #   type: configMap
+      - name: config-traefik-dynamic
+        mountPath: /etc/traefik
+        type: configMap
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
     experimental:
       plugins:
         enabled: true
-        traefik-forwarded-real-ip:
-          moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
-          version: "v1.0.2"
-
 kustomize:
   dir: kustomize
