@@ -16,13 +16,13 @@ helm:
           name: cloudflare-dns
       - secretRef:
           name: cloudflare-api
-    additionalVolumesMounts:
-      - name: traefik-dynamic-configs
-        mountPath: /dynamic-config/
     additionalVolumes:
-      - name: traefik-dynamic-configs
+      - name: traefik-middlewares
         configMap:
-          - name: traefik-dynamic-configs
+          - name: traefik-middlewares
+    additionalVolumesMounts:
+      - name: traefik-middlewares
+        mountPath: /middlewares/
     resources:
       requests:
         cpu: '125m'

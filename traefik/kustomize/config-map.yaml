@@ -13,9 +13,9 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: traefik-dynamic-configs
+  name: traefik-middlewares
 data:
-  middleware-forwarded-real-ip.yaml: |
+  forwarded-real-ip.yaml: |
     middlewares:
         my-traefik-forwarded-real-ip:
           plugin:
