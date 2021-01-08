@@ -22,19 +22,6 @@ data:
     accesslog: true
     log:
       level: DEBUG
-    providers:
-      file: 
-        directory: /etc/traefik/providers
-        watch: true
-    certificatesresolvers:
-      cloudflare:
-        acme:
-          email: llucasshenrique@gmail.com
-          storage: /etc/traefik/certs/acme.json
-          dnschallenge:
-            provider: cloudflare
-            resolvers: 1.1.1.1:53,1.0.0.1:53
-            delayBeforeCheck: 90
     experimental:
       plugins:
         traefik-forwarded-real-ip:
