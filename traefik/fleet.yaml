@@ -9,20 +9,6 @@ helm:
       - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
-    envFrom:
-      - configMapRef:
-          name: traefik-static
-      - secretRef:
-          name: cloudflare-dns
-      - secretRef:
-          name: cloudflare-api
-    additionalVolumes:
-      - name: traefik-middlewares
-        configMap:
-          - name: traefik-middlewares
-    additionalVolumesMounts:
-      - name: traefik-middlewares
-        mountPath: /middlewares/
     resources:
       requests:
         cpu: '125m'
@@ -30,6 +16,20 @@ helm:
       limits:
         cpu: '500m'
         memory: 1Gi
+    envFrom:
+      - configMapRef:
+          name: traefik-static
+      - secretRef:
+          name: cloudflare-dns
+      - secretRef:
+          name: cloudflare-api
+    additionalVolumeMounts:
+      - name: traefik-middlewares
+        mountPath: /middlewares/
+    additionalVolumes:
+      - name: traefik-middlewares
+        configMap:
+          - name: traefik-middlewares
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
