@@ -25,5 +25,9 @@ helm:
         traefik-forwarded-real-ip:
           moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
           version: "v1.0.2"
+      middlewares:
+        my-traefik-forwarded-real-ip:
+          plugin:
+            traefik-forwarded-real-ip: {}
 kustomize:
   dir: kustomize
