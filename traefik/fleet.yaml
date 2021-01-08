@@ -5,6 +5,9 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
+      - "--api.insecure=true"
+      - "--accesslog=true"
+      - "--log.level=INFO"
       - "--providers.file.directory=/config"
       - "--certificatesresolvers.cloudflare.acme.email=llucasshenrique@gmail.com"
       - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
