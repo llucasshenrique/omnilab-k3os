@@ -25,10 +25,10 @@ helm:
           - name: traefik-dynamic-configs
     resources:
       requests:
-        cpus: '125m'
+        cpu: '125m'
         memory: 128Mi
       limits:
-        cpus: '500m'
+        cpu: '500m'
         memory: 1Gi
     pilot:
       enabled: true
