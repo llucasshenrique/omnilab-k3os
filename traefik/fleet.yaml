@@ -23,11 +23,10 @@ helm:
           name: cloudflare-dns
       - secretRef:
           name: cloudflare-api
-    deployments:
-      additionalVolumes:
-        - name: config-middlewares
-          configMap:
-            name: config-traefik-middlewares
+    volumes:
+      - name: config-traefik-middlewares
+        mountPath: /middlewares
+        type:  configMap
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
