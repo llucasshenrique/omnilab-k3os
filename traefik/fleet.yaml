@@ -18,8 +18,6 @@ helm:
         cpu: "500m"
         memory: 1Gi
     envFrom:
-      - configMapRef:
-          name: traefik-static
       - secretRef:
           name: cloudflare-dns
       - secretRef:
