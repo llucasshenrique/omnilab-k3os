@@ -23,10 +23,11 @@ helm:
           name: cloudflare-dns
       - secretRef:
           name: cloudflare-api
-    additionalVolumeMounts:
-      - name: config-middlewares
-        mountPath: /middlewares
-        readOnly: true
+    deployments:
+      additionalVolumes:
+        - name: config-middlewares
+          mountPath: /middlewares
+          readOnly: true
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
