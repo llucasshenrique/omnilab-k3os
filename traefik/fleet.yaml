@@ -5,7 +5,7 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
-      # - "--providers.file.filename=/data/traefik.yaml"
+      - "--providers.file.filename=/data/static/traefik.yaml"
       - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
       - "--entryPoints.websecure.http.tls.domains[0].main=llucasshenrique.space"
       - "--entryPoints.websecure.http.tls.domains[0].sans=*.llucasshenrique.space"
@@ -31,7 +31,7 @@ helm:
         mountPath: /data/providers
         type: configMap
       - name: config-traefik-dynamic
-        mountPath: /data
+        mountPath: /data/static
         type: configMap
     pilot:
       enabled: true
