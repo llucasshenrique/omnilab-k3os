@@ -15,7 +15,7 @@ kind: ConfigMap
 metadata:
   name: config-traefik-dynamic
 data:
-  config.yaml: |
+  traefik.yaml: |
     api:
       insecure: true
       dashboard: true
