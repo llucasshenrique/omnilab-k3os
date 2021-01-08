@@ -11,10 +11,10 @@ helm:
       - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
     resources:
       requests:
-        cpu: '125m'
+        cpu: "125m"
         memory: 128Mi
       limits:
-        cpu: '500m'
+        cpu: "500m"
         memory: 1Gi
     envFrom:
       - configMapRef:
@@ -23,7 +23,10 @@ helm:
           name: cloudflare-dns
       - secretRef:
           name: cloudflare-api
-
+    additionalVolumeMounts:
+      - name: config-middlewares
+        mountPath: /middlewares
+        readOnly: true
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
