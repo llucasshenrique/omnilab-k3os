@@ -30,12 +30,13 @@ helm:
       additionalVolumes:
         - name: traefik-middlewares
           configMap:
-            name: traefik-middlewares
+            name: config-traefik-middlewares
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
     experimental:
       plugins:
+        enabled: true
         traefik-forwarded-real-ip:
           moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
           version: "v1.0.2"
