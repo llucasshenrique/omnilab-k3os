@@ -26,10 +26,11 @@ helm:
     additionalVolumeMounts:
       - name: traefik-middlewares
         mountPath: /middlewares/
-    additionalVolumes:
-      - name: traefik-middlewares
-        configMap:
-          name: traefik-middlewares
+    deployments:
+      additionalVolumes:
+        - name: traefik-middlewares
+          configMap:
+            name: traefik-middlewares
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
