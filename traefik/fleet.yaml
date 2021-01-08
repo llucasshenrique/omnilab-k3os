@@ -5,7 +5,7 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
-      - "--providers.file.filename=/data/traefik.yaml"
+      # - "--providers.file.filename=/data/traefik.yaml"
       - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
       - "--entryPoints.websecure.http.tls.domains[0].main=llucasshenrique.space"
       - "--entryPoints.websecure.http.tls.domains[0].sans=*.llucasshenrique.space"
