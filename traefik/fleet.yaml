@@ -5,7 +5,10 @@ helm:
   version: 9.12.3
   values:
     additionalArguments:
-      - "--providers.file.filename=/data/static/traefik.yaml"
+      - "--api.insecure=true"
+      - "--accesslog=true"
+      - "--experimental.plugins.traefik.forwarded-real-ip.moduleName=github.com/iYUYUE/traefik-forwarded-real-ip"
+      - "--experimental.plugins.traefik.forwarded-real-ip.version=v1.0.2"
       - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
       - "--entryPoints.websecure.http.tls.domains[0].main=llucasshenrique.space"
       - "--entryPoints.websecure.http.tls.domains[0].sans=*.llucasshenrique.space"
@@ -29,9 +32,6 @@ helm:
     volumes:
       - name: config-traefik-middlewares
         mountPath: /data/providers
-        type: configMap
-      - name: config-traefik-dynamic
-        mountPath: /data/static
         type: configMap
     pilot:
       enabled: true

@@ -9,21 +9,3 @@ data:
         traefik-forwarded-real-ip:
           plugin:
             traefik-forwarded-real-ip: {}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-traefik-dynamic
-data:
-  traefik.yaml: |
-    api:
-      enabled: true
-      insecure: true
-    accesslog: true
-    log:
-      level: DEBUG
-    experimental:
-      plugins:
-        traefik-forwarded-real-ip:
-          moduleName: "github.com/iYUYUE/traefik-forwarded-real-ip"
-          version: "v1.0.2"
