@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: cannapag-api-rest
 spec:
+  externalTrafficPolicy: Local
   selector:
     name: cannapag-api-rest
   ports:
