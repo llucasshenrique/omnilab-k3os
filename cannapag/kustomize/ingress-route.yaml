@@ -10,7 +10,7 @@ spec:
     - match: Host(`dev-cannapag.llucasshenrique.space`)
       kind: Rule
       services:
-        - name: cannapag-api-rest
+        - name: cannapag-api-rest-lb
           port: 3333
   tls:
     provider: cloudflare
