@@ -33,7 +33,7 @@ helm:
       - name: config-traefik-middlewares
         mountPath: /providers
         type: configMap
-    services:
+    service:
       spec:
         externalTrafficPolicy: Local
     pilot:
