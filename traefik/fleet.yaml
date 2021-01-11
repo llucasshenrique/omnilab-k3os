@@ -33,9 +33,6 @@ helm:
       - name: config-traefik-middlewares
         mountPath: /providers
         type: configMap
-    service:
-      spec:
-        externalTrafficPolicy: Local
     pilot:
       enabled: true
       token: "cf3cf80a-b07f-408a-a7c0-02fcb74ab8ee"
