@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: cannapag-api-rest-config
 data:
-  EVENTSTORE_URL: esdb-lb
+  EVENTSTORE_URL: eventstore-esdb.dev-eventstore.svc.cluster.local
   EVENTSTORE_PORT: "2113"
   EVENTSTORE_TLS: "false"
   PORT: "3333"
