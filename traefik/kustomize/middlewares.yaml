@@ -4,7 +4,7 @@ kind: Middleware
 metadata:
   name: forwarded-real-ip
 spec:
-  spec:
+  plugin:
     forwarded-real-ip:
       excludednets:
           - 1.1.1.1/24

@@ -1,4 +1,3 @@
 resources:
   - ingress-route.yaml
-  - middlewares.yaml
   - config-map.yaml
