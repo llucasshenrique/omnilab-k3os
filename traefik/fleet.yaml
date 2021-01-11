@@ -7,7 +7,6 @@ helm:
     additionalArguments:
       - "--api.insecure=true"
       - "--accesslog=true"
-      # - "--providers.file.directory=/providers"
       - "--experimental.plugins.forwarded-real-ip.moduleName=github.com/pvalletbo/traefik-forwarded-real-ip"
       - "--experimental.plugins.forwarded-real-ip.version=v1.0.3"
       - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
@@ -28,8 +27,8 @@ helm:
     envFrom:
       - secretRef:
           name: cloudflare-dns
-      - secretRef:
-          name: cloudflare-api
+      # - secretRef:
+      #     name: cloudflare-api
     volumes:
       - name: config-traefik-middlewares
         mountPath: /providers
