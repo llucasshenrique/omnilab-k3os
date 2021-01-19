@@ -7,8 +7,8 @@ helm:
     additionalArguments:
       - "--api.insecure=true"
       - "--accesslog=true"
-      - "--experimental.plugins.forwarded-real-ip.moduleName=github.com/pvalletbo/traefik-forwarded-real-ip"
-      - "--experimental.plugins.forwarded-real-ip.version=v1.0.3"
+      # - "--experimental.plugins.forwarded-real-ip.moduleName=github.com/pvalletbo/traefik-forwarded-real-ip"
+      # - "--experimental.plugins.forwarded-real-ip.version=v1.0.3"
       - "--entryPoints.websecure.http.tls.certresolver=cloudflare"
       - "--entryPoints.websecure.http.tls.domains[0].main=llucasshenrique.space"
       - "--entryPoints.websecure.http.tls.domains[0].sans=*.llucasshenrique.space"
