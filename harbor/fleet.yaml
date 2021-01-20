@@ -2,19 +2,3 @@ defaultNamespace: harbor
 namespace: harbor
 kustomize:
   dir: kustomize
-helm:
-  repo: https://charts.bitnami.com/bitnami
-  chart: harbor
-  version: 9.4.1
-  values:
-    externalURL: https://harbor.llucasshenrique.space
-    ingress:
-      hosts:
-        core: https://harbor.llucasshenrique.space
-        notary: https://notary.llucasshenrique.space
-    nginx:
-      behindReverseProxy: true
-    service:
-      tls:
-        commonName: https://harbor.llucasshenrique.space
-      
