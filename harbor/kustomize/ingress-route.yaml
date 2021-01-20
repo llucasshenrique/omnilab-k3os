@@ -10,18 +10,18 @@ spec:
     - match: Host(`harbor.llucasshenrique.space`)
       kind: Rule
       services:
-        - name: harbor-harbor-portal
+        - name: harbor-portal
           port: 80
     - match: Host(`harbor.llucasshenrique.space`) && PathPrefix(`/api/`, `/service/`, `/v2/`, `/chartrepo/`, `/c/`)
       kind: Rule
       services:
-        - name: harbor-harbor-core
+        - name: harbor-core
           namespace: harbor
           port: 80
     - match: Host(`notary.llucasshenrique.space`)
       kind: Rule
       services:
-        - name: harbor-harbor-notary-server
+        - name: harbor-notary-server
           namespace: harbor
           port: 4443
   tls:
